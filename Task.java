@@ -18,18 +18,33 @@ public class Task {
     public Task (String description) {
         id++;
         this.description = description;
-        this.createdAt = DateAndTime();
+        this.createdAt = dateAndTime();
+        this.status = "todo";
     }
 
-    public String DateAndTime () {
+    public String dateAndTime () {
         LocalDateTime currentDateTime = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String formattedDateTime = currentDateTime.format(formatter);
         return formattedDateTime;
     }
 
+    //set status, `status`: The status of the task (`todo`, `in-progress`, `done`)
+    public void changeStatus (String newStatus) {
+        this.status = newStatus;
+    }
+
+    //update task by changing description and so setting updateAt, 
+    //`updatedAt`: The date and time when the task was last updated
+    public void changeTaskDescrption (String newDescription) {
+        this.description = newDescription;
+        this.updatedAt = dateAndTime();
+    }
+
+
+
     public String toString () {
-        return "id: " + id + ", description: " + description + " createdAt: " + createdAt;
+        return "id: " + id + ", description: " + description + "status: " + status + ", createdAt: " + createdAt;
     }
 }
 
