@@ -1,10 +1,16 @@
 public class Main { 
     public static void main(String[] args) {
+
+        TaskManager taskList = new TaskManager();
         
-        Task myTask = new Task("buy food"); 
-        System.out.println(myTask);
+        Task myTask = new Task("buy food");
+        taskList.addTask(myTask);
+
         Task myOtherTask = new Task("buy land");
-        System.out.println(myOtherTask);
+        taskList.addTask(myOtherTask);
+
+        taskList.displayTasks();
+        
     }
 }
 
