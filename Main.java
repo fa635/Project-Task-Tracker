@@ -3,11 +3,13 @@ public class Main {
 
         TaskManager taskList = new TaskManager();
         
-        Task myTask = new Task("buy food");
-        taskList.addTask(myTask);
+        //Task myTask = new Task("buy food");
+        taskList.addTask("buy food");
 
-        Task myOtherTask = new Task("buy land");
-        taskList.addTask(myOtherTask);
+        //Task myOtherTask = new Task("buy land");
+        taskList.addTask("buy land");
+
+        taskList.deleteTask(1);
 
         taskList.displayTasks();
         

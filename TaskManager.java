@@ -8,14 +8,24 @@ public class TaskManager {
         this.tasks = new ArrayList<>();
     }
 
-    public void addTask (Task task) {
+    public void addTask (String description) {
+        Task task = new Task(description);
         this.tasks.add(task);
+    }
+
+    public void deleteTask (int id) {
+        // id - 1 because the index is 0 based but not the id
+        tasks.remove(id - 1);
+        // decrement each id by 1 after delete
+        for (int i = id - 1; i < tasks.size(); i++) {
+            tasks.get(i).id = tasks.get(i).id - 1;
+        }
     }
 
 
     public void displayTasks () {
         for (Task task : tasks) {
-           System.out.println(task.description);
+           System.out.println(task.description + " id: " + task.id);
         }
          
     }

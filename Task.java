@@ -2,7 +2,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Task {
-    private static int id = 0;
+    public static int globlalId = 0;
+    int id;
     String description;
     String status;
     String createdAt;
@@ -16,7 +17,8 @@ public class Task {
 */
 
     public Task (String description) {
-        id++;
+        globlalId++;
+        this.id = globlalId;
         this.description = description;
         this.createdAt = dateAndTime();
         this.status = "todo";
