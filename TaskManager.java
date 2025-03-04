@@ -22,10 +22,20 @@ public class TaskManager {
         }
     }
 
+    public void updateStatus (int id, String newStatus) {
+        tasks.get(id - 1).status = newStatus;
+    }
+
+    public void changeDescription (int id, String newDescription) {
+        tasks.get(id - 1).description = newDescription;
+        tasks.get(id - 1).updatedAt = tasks.get(id - 1).dateAndTime();
+    }
+
 
     public void displayTasks () {
         for (Task task : tasks) {
-           System.out.println(task.description + " id: " + task.id);
+           System.out.println(task.description + "; id: " + task.id + "; status: " + task.status 
+           + "; date: " + task.createdAt + "; audateDate: " + task.updatedAt);
         }
          
     }

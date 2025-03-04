@@ -31,17 +31,6 @@ public class Task {
         return formattedDateTime;
     }
 
-    //set status, `status`: The status of the task (`todo`, `in-progress`, `done`)
-    public void changeStatus (String newStatus) {
-        this.status = newStatus;
-    }
-
-    //update task by changing description and so setting updateAt, 
-    //`updatedAt`: The date and time when the task was last updated
-    public void changeTaskDescrption (String newDescription) {
-        this.description = newDescription;
-        this.updatedAt = dateAndTime();
-    }
 
 
 

@@ -12,6 +12,11 @@ public class Main {
         taskList.deleteTask(1);
 
         taskList.displayTasks();
+
+        taskList.updateStatus(1, "done");
+        taskList.changeDescription(1, "buy some");
+
+        taskList.displayTasks();
         
     }
 }
