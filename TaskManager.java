@@ -20,6 +20,8 @@ public class TaskManager {
         for (int i = id - 1; i < tasks.size(); i++) {
             tasks.get(i).id = tasks.get(i).id - 1;
         }
+        // decrement the globalId
+        Task.globlalId -= 1;
     }
 
     public void updateStatus (int id, String newStatus) {
@@ -32,12 +34,39 @@ public class TaskManager {
     }
 
 
-    public void displayTasks () {
+    public void listAllTasks () {
         for (Task task : tasks) {
            System.out.println(task.description + "; id: " + task.id + "; status: " + task.status 
            + "; date: " + task.createdAt + "; audateDate: " + task.updatedAt);
         }
          
+    }
+
+    public void listTasksTodo () {
+        for (Task task : tasks) {
+            if (task.status.equals("todo")) {
+                System.out.println(task.description + "; id: " + task.id + "; status: " + task.status 
+                + "; date: " + task.createdAt + "; audateDate: " + task.updatedAt);
+            }
+         }
+    }
+
+    public void listTasksInProgress () {
+        for (Task task : tasks) {
+            if (task.status.equals("in-progress")) {
+                System.out.println(task.description + "; id: " + task.id + "; status: " + task.status 
+                + "; date: " + task.createdAt + "; audateDate: " + task.updatedAt);
+            }
+         }
+    }
+
+    public void listTasksDone () {
+        for (Task task : tasks) {
+            if (task.status.equals("done")) {
+                System.out.println(task.description + "; id: " + task.id + "; status: " + task.status 
+                + "; date: " + task.createdAt + "; audateDate: " + task.updatedAt);
+            }
+         }
     }
 
 }
