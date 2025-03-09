@@ -1,3 +1,4 @@
+package com.fa;
 public class Main { 
     public static void main(String[] args) {
 
@@ -38,6 +39,8 @@ public class Main {
         taskList.updateStatus(4, "todo");
         taskList.updateStatus(1, "todo");
         taskList.listTasksTodo(); 
+
+        taskList.addTask("buy 5");
         
 
         

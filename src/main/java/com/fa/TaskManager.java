@@ -1,20 +1,34 @@
-import java.util.ArrayList;
-import com.fasterxml.jackson.databind.ObjectMapper;
+package com.fa;
 import java.io.File;
-import java.io.IOException;
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class TaskManager {
 
     public ArrayList<Task> tasks;
+    public JsonManager jsonHandler;
 
     public TaskManager() {
-        this.tasks = new ArrayList<>();
+
+        this.jsonHandler = new JsonManager();
+
+        File file = new File("src/main/resources/tasks.json");
+        if (file.exists()) {
+            List<Task> listTasks = jsonHandler.loadTasksFromJson();
+
+            this.tasks = new ArrayList<>(listTasks);
+        } else {
+            this.tasks = new ArrayList<>();
+        }
+
+    
     }
 
     public void addTask (String description) {
         Task task = new Task(description);
         this.tasks.add(task);
+
+        saveTasks();
     }
 
     public void deleteTask (int id) {
@@ -26,15 +40,21 @@ public class TaskManager {
         }
         // decrement the globalId
         Task.globlalId -= 1;
+
+        saveTasks();
     }
 
     public void updateStatus (int id, String newStatus) {
         tasks.get(id - 1).status = newStatus;
+
+        saveTasks();
     }
 
     public void changeDescription (int id, String newDescription) {
         tasks.get(id - 1).description = newDescription;
         tasks.get(id - 1).updatedAt = tasks.get(id - 1).dateAndTime();
+
+        saveTasks();
     }
 
 
@@ -43,6 +63,8 @@ public class TaskManager {
            System.out.println(task.description + "; id: " + task.id + "; status: " + task.status 
            + "; date: " + task.createdAt + "; audateDate: " + task.updatedAt);
         }
+
+        saveTasks();
          
     }
 
@@ -71,6 +93,10 @@ public class TaskManager {
                 + "; date: " + task.createdAt + "; audateDate: " + task.updatedAt);
             }
          }
+    }
+
+    public void saveTasks() {
+        jsonHandler.saveTasksToJson(tasks);
     }
 
 }
