@@ -43,6 +43,50 @@ public class Main {
         taskList.addTask("buy 5");
         
 
+
+
+
+
+
+        /*switch (args[0]) {
+            case "add":
+                taskList.addTask(args[1]);
+                break;
+                
+            case "delete":
+                // Code for case value2
+                break;
+                
+            case "update":
+                // Code for case value3
+                break;
+
+            case "status":
+                // Code for case value3
+                break;
+              
+            case "list":
+                // Code for case value3
+                break;
+               
+            case "listDone":
+                // Code for case value3
+                break;
+            
+            case "listTodo":
+                // Code for case value3
+                break;
+               
+            case "listInProgress":
+                // Code for case value3
+                break;
+               
+            default:
+                // Code for default case
+                break;
+        }
+        */
+
         
     }
 }

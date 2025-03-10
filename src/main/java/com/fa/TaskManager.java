@@ -17,6 +17,8 @@ public class TaskManager {
             List<Task> listTasks = jsonHandler.loadTasksFromJson();
 
             this.tasks = new ArrayList<>(listTasks);
+
+            Task.globlalId = tasks.size();
         } else {
             this.tasks = new ArrayList<>();
         }
