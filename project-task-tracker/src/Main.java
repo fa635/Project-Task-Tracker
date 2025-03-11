@@ -10,35 +10,35 @@ public class Main {
                 break;
                 
             case "delete":
-                // Code for case value2
+                taskList.deleteTask(Integer.valueOf(args[1]));
                 break;
                 
             case "update":
-                // Code for case value3
+                taskList.changeDescription(Integer.valueOf(args[1]), args[2]);
                 break;
 
             case "status":
-                // Code for case value3
+            taskList.updateStatus(Integer.valueOf(args[1]), args[2]);
                 break;
               
             case "list":
-                // Code for case value3
+                taskList.listAllTasks();
                 break;
                
             case "listDone":
-                // Code for case value3
+                taskList.listTasksDone();
                 break;
             
             case "listTodo":
-                // Code for case value3
+                taskList.listTasksTodo(); 
                 break;
                
             case "listInProgress":
-                // Code for case value3
+                taskList.listTasksInProgress();
                 break;
                
             default:
-                // Code for default case
+                System.out.println("Usage: java -cp \"bin;lib/*\" Main <command>");
                 break;
         }
         
