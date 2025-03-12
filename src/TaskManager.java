@@ -11,7 +11,7 @@ public class TaskManager {
 
         this.jsonHandler = new JsonManager();
 
-        File file = new File("src/tasks.json");
+        File file = new File("bin/tasks.json");
         if (file.exists()) {
             List<Task> listTasks = jsonHandler.loadTasksFromJson();
 

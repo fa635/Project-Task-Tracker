@@ -1,4 +1,3 @@
-package com.fa;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import java.io.File;
@@ -18,7 +17,7 @@ public class JsonManager {
             mapper.enable(SerializationFeature.INDENT_OUTPUT);
 
             // Create the file if it doesn't exist
-            File file = new File("src/main/resources/" + TASKS_FILE_NAME);
+            File file = new File("bin/" + TASKS_FILE_NAME);
             if (!file.exists()) {
                 if (file.createNewFile()) {
                     System.out.println("File 'tasks.json' created.");
@@ -43,7 +42,7 @@ public class JsonManager {
         List<Task> tasks = null;
         try {
             // Read JSON file and convert it into a List of Task objects
-            File file = new File("src/main/resources/" + TASKS_FILE_NAME);
+            File file = new File("bin/" + TASKS_FILE_NAME);
             if (file.exists()) {
                 tasks = mapper.readValue(file, mapper.getTypeFactory().constructCollectionType(List.class, Task.class));
                 System.out.println("Tasks loaded from tasks.json");
