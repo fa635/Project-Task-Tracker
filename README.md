@@ -31,7 +31,7 @@ Task Tracker CLI is a simple command-line application for managing tasks. Users 
 ## Installation
 1. **Clone the repository** (if using Git):
    ```sh
-   git clone <your-repository-url>
+   git clone <https://github.com/fa635/Project-Task-Tracker>
    cd Project-Task-Tracker
    ```
 2. **Ensure the required JAR files are in the `lib/` folder**:
